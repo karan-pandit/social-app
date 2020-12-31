@@ -1,5 +1,4 @@
-import { createMuiTheme, withTheme} from '@material-ui/core/styles';
-import { deepOrange, yellow} from '@material-ui/core/colors';
+import { createMuiTheme} from '@material-ui/core/styles';
 
 export const theme = createMuiTheme({
     palette: {
@@ -13,3 +12,13 @@ export const theme = createMuiTheme({
       },
     },
   });
+
+// theme.overrides = {
+//   MuiCssBaseline: {
+//     '@global': {
+//       body: {
+//       backgroundColor:'#ffff00'
+//       }
+//     }
+//   }
+// }

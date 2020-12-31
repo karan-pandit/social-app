@@ -1,3 +1,3 @@
-export {home} from './home'
-export {login} from './login'
-export {signup} from './signup'
+export {Home} from './Home'
+export {Login} from './Login'
+export {Signup} from './Signup'

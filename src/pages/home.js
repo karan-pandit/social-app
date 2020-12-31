@@ -1,12 +1,28 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-export const home = () => {
+import {Scream} from '../components';
+
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+export const Home = () => {
+
+    const [screams, setScreams] = useState(null)
+    useEffect(() => {
+        axios.get('/screams').then(res => {
+            setScreams(res.data)
+        })
+    }, [])
+
+    let recentScreamsMarkup = screams ? (
+        screams.map(scream => <Scream key={scream.screamId} scream={scream}/>)
+    ) : <Typography> Loading... </Typography>
+
     return (
-        <Grid container>
+        <Grid container spacing={6}>
             <Grid item sm={8} xs={12}>
-                <Typography variant='body1'>Content...</Typography>
+                {recentScreamsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
                 <Typography variant='body1'>Profile...</Typography>
