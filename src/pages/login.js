@@ -1,5 +1,4 @@
-import React, {useState, useRef} from 'react';
-import axios from 'axios';
+import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom'
 
 import {useStyles} from '../styles';

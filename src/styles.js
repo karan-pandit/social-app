@@ -21,6 +21,7 @@ export const useStyles = makeStyles(({
       marginBottom: '20px',
     },
     cardContent: {
+      position: 'relative',
       padding: '25px'
     },
     cardImage: {
@@ -53,6 +54,100 @@ export const useStyles = makeStyles(({
     },
     progress: {
       position: 'absolute'
+    },
+    paper: {
+      padding: 20
+    },
+    profile: {
+      '& .image-wrapper': {
+        textAlign: 'center',
+        position: 'relative',
+        '& button': {
+          position: 'absolute',
+          top: '80%',
+          left: '70%'
+        }
+      },
+      '& .profile-image': {
+        width: 200,
+        height: 200,
+        objectFit: 'cover',
+        maxWidth: '100%',
+        borderRadius: '50%'
+      },
+      '& .profile-details': {
+        textAlign: 'center',
+        '& span, svg': {
+          verticalAlign: 'middle'
+        },
+        '& a': {
+          color: '#039be5'
+        }
+      },
+      '& hr': {
+        border: 'none',
+        margin: '0 0 10px 0'
+      },
+      '& svg.button': {
+        '&:hover': {
+          cursor: 'pointer'
+        }
+      }
+    },
+    buttons: {
+      textAlign: 'center',
+      '& a': {
+        margin: '20px 10px'
+      }
+    },
+    submitButton: {
+      position: 'relative',
+      float: 'right',
+      marginTop: 10
+    },
+    progressSpinner: {
+      position: 'absolute'
+    },
+    closeButton: {
+      position: 'absolute',
+      left: '91%',
+      top: '6%'
+    },
+    deleteButton: {
+      position: 'absolute',
+      left: '525px',
+      top: '8px'
+    },
+    commentImage: {
+      maxWidth: '100%',
+      height: 100,
+      objectFit: 'cover',
+      borderRadius: '50%'
+    },
+    commentData: {
+      marginLeft: 20
+    },
+    profileImage: {
+      maxWidth: 200,
+      height: 200,
+      borderRadius: '50%',
+      objectFit: 'cover'
+    },
+    dialogContent: {
+      padding: 20
+    },
+    commentButton: {
+      position: 'absolute',
+      left: '90%'
+    },
+    expandButton: {
+      position: 'absolute',
+      left: '90%'
+    },
+    spinnerDiv: {
+      textAlign: 'center',
+      marginTop: 50,
+      marginBottom: 50
     }
   }));
 

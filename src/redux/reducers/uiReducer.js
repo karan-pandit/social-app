@@ -10,7 +10,7 @@ import {
     errors: {}
   };
   
-  export default function(state = initialState, action) {
+  export const uiReducer = (state = initialState, action) => {
     switch (action.type) {
       case SET_ERRORS:
         console.log(action.payload)

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import {Scream} from '../components';
+import {Profile} from '../components';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -25,7 +26,7 @@ export const Home = () => {
                 {recentScreamsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
-                <Typography variant='body1'>Profile...</Typography>
+                <Profile/>
             </Grid>
         </Grid>
     )

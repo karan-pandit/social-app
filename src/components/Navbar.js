@@ -1,22 +1,52 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {PostScream} from './PostScream';
+import {Notifications} from './Notifications';
+
+import { useSelector } from 'react-redux';
 
 //MUI Stuff
 import {useStyles} from '../styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+
+import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
 
 export const Navbar = () => {
     const classes = useStyles();
-    let history = useHistory()
+    const authenticated = useSelector(state => state.user.authenticated)
     return (
         <AppBar>
             <Toolbar className={classes.navContainer}>
-                <Button color='inherit' onClick={() => history.push('/')}><Typography>HOME</Typography></Button>
-                <Button color='inherit' onClick={() => history.push('/login')}><Typography>LOGIN</Typography></Button>
-                <Button color='inherit' onClick={() => history.push('/signup')}><Typography>SIGNUP</Typography></Button>
+            {authenticated ? (
+            <>
+              <PostScream />
+              <Link to="/">
+
+              <Tooltip title="Home">
+                    <IconButton>
+                    <HomeIcon />
+                    </IconButton>
+                </Tooltip>
+              </Link>
+              <Notifications />
+            </>
+          ) : (
+            <>
+              <Button color="inherit" component={Link} to="/login">
+                Login
+              </Button>
+              <Button color="inherit" component={Link} to="/">
+                Home
+              </Button>
+              <Button color="inherit" component={Link} to="/signup">
+                Signup
+              </Button>
+            </>
+          )}
             </Toolbar>
         </AppBar>
     )

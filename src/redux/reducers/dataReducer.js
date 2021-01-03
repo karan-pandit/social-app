@@ -15,7 +15,7 @@ import {
     loading: false
   };
   
-  export default function(state = initialState, action) {
+  export const dataReducer = (state = initialState, action) => {
     switch (action.type) {
       case LOADING_DATA:
         return {

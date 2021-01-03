@@ -1,5 +1,4 @@
-import React, {useState, useRef} from 'react';
-import axios from 'axios';
+import React, {useRef} from 'react';
 import { useHistory } from 'react-router-dom'
 
 import {useStyles} from '../styles';
@@ -10,6 +9,11 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Icon from '../assets/monkey.png'
+
+// Redux stuff
+import { useSelector, useDispatch } from 'react-redux';
+import { signupUser } from '../redux/actions/userActions';
+
 export const Signup = () => {
     // const [state, setState] = useState({
     //     email: '',
@@ -21,25 +25,16 @@ export const Signup = () => {
         confirmPassword:'',
         handle:'',
     });
-    const [loading, setLoading] = useState(false);
-    const [errors, setErrors] = useState({});
+    const loading = useSelector(state => state.UI.loading);
+    const errors = useSelector(state => state.UI.errors);
 
     let history = useHistory();
+    const dispatch = useDispatch();
 
     const handleSubmit = e => {
         e.preventDefault();
-        setLoading(true); 
         const newUserData = state.current;
-        axios.post('/signup', newUserData)
-            .then(res => {
-                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
-                setLoading(false);
-                history.push('/');
-            })
-            .catch(err => {
-                setErrors(err.response.data);
-                setLoading(false);
-            })
+        dispatch(signupUser(newUserData, history));
     }
 
     const handleChange = e => {
